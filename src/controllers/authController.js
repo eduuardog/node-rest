@@ -15,12 +15,3 @@ router.post('/register', async (request, response) => {
 })
 
 module.exports = app => app.use('/auth', router);
-
-
-
-/* {
-  "name": "Francisco Eduardo",
-  "email": "franciscoeduardo278@gmail.com",
-  "password": "francisco123"
-
-} */

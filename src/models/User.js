@@ -1,4 +1,5 @@
 const { Schema, model } = require('../database');
+const bcrypt = require('bcryptjs');
 
 const UserSchema = new Schema({
   name: {
@@ -20,6 +21,12 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   }
+})
+
+UserSchema.pre('save', async function (next) {
+  const hash = await bcrypt.hash(this.password, 10);
+  this.password = hash;
+  next();
 })
 
 const User = model('User', UserSchema);
