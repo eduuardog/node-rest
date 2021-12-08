@@ -8,10 +8,19 @@ router.post('/register', async (request, response) => {
     const user = await User.create(request.body);
 
 
-    response.send(user);
+    return response.send(user);
   } catch (error) {
-    response.sendStatus(400).send({ error: 'Registration failed' });
+    return response.status(400).send({ error: 'Registration failed' });
   }
 })
 
-module.exports = app => app.use('/auth', router)
+module.exports = app => app.use('/auth', router);
+
+
+
+/* {
+  "name": "Francisco Eduardo",
+  "email": "franciscoeduardo278@gmail.com",
+  "password": "francisco123"
+
+} */
