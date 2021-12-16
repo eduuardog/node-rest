@@ -8,5 +8,6 @@ authRoutes.post('/authenticate', authController.authenticate);
 authRoutes.post('/forgot_password', authController.forgotPassword);
 authRoutes.post('/reset_password', authController.resetPassword);
 
+
 module.exports = authRoutes;
 
