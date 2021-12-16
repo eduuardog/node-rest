@@ -6,7 +6,7 @@ const { randomBytes } = require('crypto');
 
 function generateToken(params = {}) {
   return jwt.sign(params, authConfig.secret, {
-    expiresIn: '10min'
+    expiresIn: '1h'
   })
 }
 
@@ -103,8 +103,6 @@ async function resetPassword(request, response) {
   } catch (error) {
     return response.status(400).json({ error: 'Error on reset password' })
   }
-
-
 
 }
 
